@@ -1,16 +1,47 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <title>Form Login</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+    <form id="loginForm">
+        <label>First Name: </label>
+        <input type="text" name="First Name" required><br><br>
+
+        <label>Last Name: </label>
+        <input type="text" name="Last Name" required><br><br>
+
+        <label>Phone Number: </label>
+        <input type="text" name="Phone Number" required><br><br>
+
+        <label>Email ID: </label>
+        <input type="email" name="Email ID" required><br><br>
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', (event) => {
+            // Prevent the default form submission (page refresh)
+            event.preventDefault();
+
+            // Create a FormData object to easily access values by 'name' attribute
+            const formData = new FormData(form);
+
+            // Construct the alert string following the exact format
+            const output = 
+                `First Name: ${formData.get('First Name')} ` +
+                `Last Name: ${formData.get('Last Name')} ` +
+                `Phone Number: ${formData.get('Phone Number')} ` +
+                `Email ID: ${formData.get('Email ID')}`;
+
+            // Show the alert
+            alert(output);
+        });
+    </script>
 
 </body>
-
 </html>
